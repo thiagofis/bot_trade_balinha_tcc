@@ -33,10 +33,10 @@
         <div class="container my-auto py-5">
           <div class="row">
             <div class="col-11 col-lg-9 col-xl-8 mx-auto">
-              <h3 class="font-weight-600 mb-4">Log In</h3>
+              <h3 class="font-weight-600 mb-4">Registrar</h3>
 
                {% if form.errors %}
-                 <p class="font-italic text-danger">O seu email ou senha não estão corretos. Por favor tente novamente.</p>
+                 <p class="font-italic text-danger">Não foi possível fazer o registro, por favor verifique os dados e tente novamente.</p>
                {% endif %}
               <form id="signupForm" method="post">
                 {% csrf_token %}
