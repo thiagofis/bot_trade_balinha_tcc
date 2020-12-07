@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-
-    <div id="main-wrapper" class="oxyy-login-register">
+<div id="main-wrapper" class="oxyy-login-register">
   <div class="container-fluid px-0">
     <div class="row no-gutters min-vh-100">
       <!-- Welcome Text
@@ -19,9 +18,8 @@
             </div>
             <div class="row no-gutters my-auto">
               <div class="col-10 col-lg-9 mx-auto">
-                <h1 class="text-11 text-white mb-4">Quem somos?</h1>
-                <p class="text-4 text-white line-height-4 mb-5">Somos uma startup voltada para automatização das operações do mercado financeiro. Atuamos na análise e desenvolvimento de ferramentas capazes de eliminar os riscos de falhas nas tomadas de decisões, alem de democratizar e trazer mais acessibilidade para pessoas que tem vontade de assumir mais riscos. Desenvolvemos softwares e soluções tecnológicas sob encomenda, exclusivamente voltadas para o mercado financeiro e de ações.
-Temos como missão potencializar as chances de sucesso nas negociações dos traders e investidores na bolsa de valores.</p>
+                <h1 class="text-11 text-white mb-4">Peça o seu Bot Trade!</h1>
+                <p class="text-4 text-white line-height-4 mb-5">Preencha o formulário que entraremos em contato em breve.</p>
               </div>
             </div>
           </div>
@@ -35,9 +33,21 @@ Temos como missão potencializar as chances de sucesso nas negociações dos tra
         <div class="container my-auto py-5">
           <div class="row">
             <div class="col-11 col-lg-9 col-xl-8 mx-auto">
-              <h3 class="font-weight-600 mb-4">Personalize o seu bot!</h3>
-                  <a href="/order" class="btn btn-primary btn-block my-4" >Peça já o seu Bot Trade</a>
-                  <a href="{% url 'logout'%}?next={{'/accounts/login'}}">Sair</a>
+              <h3 class="font-weight-600 mb-4">Pedido</h3>
+
+               {% if form.errors %}
+                 <p class="font-italic text-danger">Não foi possível fazer o pedido, por favor verifique os dados e tente novamente.</p>
+               {% endif %}
+              <form id="order" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="description">Detalhes do pedido:</label>
+                  <textarea class="form-control" id="description" name="description" rows="3" required placeholder="Entre com os detalhes do seu pedido."></textarea>
+                </div>
+
+                <button class="btn btn-primary btn-block my-4" type="submit">Enviar</button>
+              </form>
+
             </div>
           </div>
         </div>
@@ -46,5 +56,4 @@ Temos como missão potencializar as chances de sucesso nas negociações dos tra
     </div>
   </div>
 </div>
-
 {% endblock %}

@@ -19,9 +19,8 @@
             </div>
             <div class="row no-gutters my-auto">
               <div class="col-10 col-lg-9 mx-auto">
-                <h1 class="text-11 text-white mb-4">Quem somos?</h1>
-                <p class="text-4 text-white line-height-4 mb-5">Somos uma startup voltada para automatização das operações do mercado financeiro. Atuamos na análise e desenvolvimento de ferramentas capazes de eliminar os riscos de falhas nas tomadas de decisões, alem de democratizar e trazer mais acessibilidade para pessoas que tem vontade de assumir mais riscos. Desenvolvemos softwares e soluções tecnológicas sob encomenda, exclusivamente voltadas para o mercado financeiro e de ações.
-Temos como missão potencializar as chances de sucesso nas negociações dos traders e investidores na bolsa de valores.</p>
+                <h1 class="text-11 text-white mb-4">Confirmação!</h1>
+                <p class="text-4 text-white line-height-4 mb-5">Verifique aqui o status do seu pedido.</p>
               </div>
             </div>
           </div>
@@ -35,8 +34,10 @@ Temos como missão potencializar as chances de sucesso nas negociações dos tra
         <div class="container my-auto py-5">
           <div class="row">
             <div class="col-11 col-lg-9 col-xl-8 mx-auto">
-              <h3 class="font-weight-600 mb-4">Personalize o seu bot!</h3>
-                  <a href="/order" class="btn btn-primary btn-block my-4" >Peça já o seu Bot Trade</a>
+              <h3 class="font-weight-600 mb-4">Prezado {{ user.get_username }}</h3>
+                  <p class="text-center text-muted mb-0">O seu pedido foi realizado com sucesso e em breve entraremos em contato!</p>
+                  <p class="text-center text-muted mb-0">Chave: {{ order.code  }}</p>
+                  <p class="text-center text-muted mb-0">Data do pedido: {{ order.created_at|date:"d-m-yy" }}</p>
                   <a href="{% url 'logout'%}?next={{'/accounts/login'}}">Sair</a>
             </div>
           </div>
